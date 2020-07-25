@@ -18,5 +18,10 @@ code {
 }
 
 .search-box {
-  max-width: 220px;
+  max-width: 250px;
+  background-color: white;
+}
+
+.employee-row:nth-child(odd) {
+  background-color: rgb(252, 250, 250);
 }

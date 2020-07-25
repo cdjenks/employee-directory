@@ -4,28 +4,24 @@ import Container from "./container";
 import Row from "./row";
 import Col from "./col";
 import SearchBar from "./searchBar";
-import API from "../utils/API";
+// import API from "../utils/API";
 import Employee from "./employee";
+import EmployeeData from "../employees.json";
 
 
 class OmdbContainer extends Component {
     state = {
-        results: [],
+        results: EmployeeData,
         filteredResults: [],
         search: "",
         placeholder: "search"
     };
 
-    // When this component mounts, search for the movie "The Matrix"
-    componentDidMount() {
-        API.search()
-            .then(res => this.setState({ results: res.data.results }))
-            .catch(err => console.log(err));
-    }
-
-    // searchEmployees = query => {
-
-    // };
+    // componentDidMount() {
+    //     API.search()
+    //         .then(res => this.setState({ results: res.data.results }))
+    //         .catch(err => console.log(err));
+    // }
 
     handleInputChange = event => {
         const value = event.target.value;
@@ -34,20 +30,19 @@ class OmdbContainer extends Component {
         });
     };
 
-    // // When the form is submitted, search the OMDB API for the value of `this.state.search`
+
     handleFormSubmit = event => {
         event.preventDefault();
-        // this.searchMovies(this.state.search);
-        const { results, search } = this.state
+
+        let { results, search } = this.state
 
         const filtered = results.filter(item => {
-            return (item.name.first.includes(search) ||
-                item.name.last.includes(search) ||
+            return (item.name.first.toLowerCase().includes(search) ||
+                item.name.last.toLowerCase().includes(search) ||
                 item.cell.includes(search))
         });
 
         if (filtered.length < 1) {
-            // alert("That search resulted in no matches...");
             this.setState({ placeholder: "That search yielded no results..." })
             this.setState({ search: "" })
         }
