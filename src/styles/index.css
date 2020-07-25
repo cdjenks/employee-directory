@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-header {
+  color: white;
+  background-color: navy;
+}
+
+.search-box {
+  max-width: 220px;
+}
