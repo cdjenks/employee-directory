@@ -127,7 +127,7 @@ class OmdbContainer extends Component {
                                     name={`${item.name.first} ${item.name.last}`}
                                     phone={item.cell}
                                     email={item.email}
-                                    dob={item.dob.date}
+                                    dob={item.dob.date.split("T")[0]}
                                 />
                             })
                         ) : (
@@ -137,7 +137,7 @@ class OmdbContainer extends Component {
                                         name={`${item.name.first} ${item.name.last}`}
                                         phone={item.cell}
                                         email={item.email}
-                                        dob={item.dob.date}
+                                        dob={item.dob.date.split("T")[0]}
                                     />
                                 })
                             )
