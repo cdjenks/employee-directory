@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/index.css";
 
-function SearchForm(props) {
+function SearchBar(props) {
     return (
         <form className="search-box"
             onSubmit={props.handleFormSubmit}>
             <div className="form-group">
-                <label htmlFor="search">Search:</label>
+                {/* <label htmlFor="search">Search:</label> */}
                 <input
                     onChange={props.handleInputChange}
                     value={props.value}
@@ -22,4 +22,4 @@ function SearchForm(props) {
     );
 }
 
-export default SearchForm;
+export default SearchBar;
