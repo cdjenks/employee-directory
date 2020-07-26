@@ -36,6 +36,10 @@ class OmdbContainer extends Component {
 
         const { results, search } = this.state;
 
+        if (search === "") {
+            return (this.setState({ placeholder: "You must enter at least one character" }))
+        }
+
         const filtered = results.filter(item => {
             return (item.name.first.toLowerCase().includes(search) ||
                 item.name.last.toLowerCase().includes(search) ||
@@ -64,7 +68,7 @@ class OmdbContainer extends Component {
             return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
         });
         console.log(sortedNames)
-        this.setState({ results: sortedNames })
+        this.setState({ filteredResults: sortedNames })
     };
 
     sortByAge = event => {
@@ -76,7 +80,7 @@ class OmdbContainer extends Component {
             return (ageA < ageB) ? -1 : (ageA > ageB) ? 1 : 0;
         });
         console.log(employeesByAge)
-        this.setState({ results: employeesByAge })
+        this.setState({ filteredResults: employeesByAge })
     }
 
     render() {
